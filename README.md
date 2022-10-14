@@ -1,7 +1,11 @@
-# Standard Java FX Application
+# Minimal Java FX Application
 
-Template for a Java FX Application built with Gradle
+Template for a minimal Java FX Application built with Gradle
 
 * Requires Java 11
+* Uses Gradle 7.1.1
 
-* Uses Java 9 Platform Module System (JPMS)
+How to start
+* clone respoitory
+* console: <i>gradlew run</i>
+* or for any gradle gui: <i>Tasks > application > run</i>
