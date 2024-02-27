@@ -3,7 +3,7 @@
 Template for a minimal Java FX Application built with Gradle
 
 * Requires Java 11
-* Uses Gradle 7.1.1
+* Uses Gradle 8.6
 
 How to start
 * clone respoitory
