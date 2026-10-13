@@ -8,14 +8,17 @@ plugins {
 
     // Plugin to use JavaFX, provides the javafx task
     // https://github.com/openjfx/javafx-gradle-plugin
-    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
 group 'de.olaf-roeder'
 version '0.1-DEVELOPER'
 
-sourceCompatibility = 1.11
-targetCompatibility = 1.11
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
 
 repositories {
     mavenCentral()
@@ -32,7 +35,7 @@ application {
 
 javafx {
 
-    version = '11'
+    version = '21'
     modules = ['javafx.controls']
 
 }
