@@ -1,38 +1,28 @@
 plugins {
-
-    // Apply the java plugin to add support for Java
-    id 'java'
-
-    // Apply the application plugin to add support for building a CLI application.
     id 'application'
-
-    // Plugin to use JavaFX, provides the javafx task
-    // https://github.com/openjfx/javafx-gradle-plugin
-    id 'org.openjfx.javafxplugin' version '0.0.13'
+    // Select JavaFX artifacts and native libraries for the current platform.
+    id 'org.openjfx.javafxplugin' version '0.1.0'
 }
-
-group 'de.olaf-roeder'
-version '0.1-DEVELOPER'
-
-sourceCompatibility = 1.11
-targetCompatibility = 1.11
-
-repositories {
-    mavenCentral()
+group = 'de.olaf-roeder'
+version = '0.1-DEVELOPER'
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(27) }
 }
-
-dependencies {
-}
-
+repositories { mavenCentral() }
 application {
-
-    // Define the main class for the application.
+    mainModule = 'minimal.javafx.application'
     mainClass = 'application.Main'
+    applicationDefaultJvmArgs = ['--enable-native-access=javafx.graphics']
 }
-
 javafx {
-
-    version = '11'
+    version = '27'
     modules = ['javafx.controls']
-
+}
+tasks.named('wrapper') {
+    distributionType = Wrapper.DistributionType.BIN
+    distributionSha256Sum = 'dce76f55f8e251a3a1f130eb120f30b3d271de2b76c9b0729d316b5a1b6dc01f'
+}
+// Require an installed JDK; do not generate vendor-specific download URLs.
+tasks.named('updateDaemonJvm') {
+    toolchainPlatforms = []
 }
